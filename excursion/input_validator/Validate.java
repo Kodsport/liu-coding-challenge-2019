@@ -2,28 +2,34 @@ import java.io.*;
 import java.util.*;
 
 public class Validate {
-  final int MAXK = 100;
   final int MAXN = 100;
   final int MAXM = 100;
 
   public void run() {
     StrictScanner inf = new StrictScanner(System.in);
-    int k = inf.nextInt();
     int n = inf.nextInt();
     int m = inf.nextInt();
     inf.nextLine();
-    ensureLimits(k, 1, MAXK, "k");
-    ensureLimits(n, 1, MAXN, "n");
-    ensureLimits(m, 1, MAXM, "m");
-    for (int i = 0; i < k * n; i++) {
-      String s = inf.next();
-      inf.nextLine();
-      ensure(s.length() == m, "length of " + (i + 1) + "-th line is wrong");
-      for (int j = 0; j < m; j++) {
-        ensure(
-            s.charAt(j) == '.' || s.charAt(j) == '*', "chars of " + (i + 1) + "-th line are wrong");
-      }
-    }
+    ensureLimits(n, 1, MAXN, "N is incorrect");
+    ensureLimits(m, 1, MAXN, "M is incorrect");
+    int ai = inf.nextInt();
+    int aj = inf.nextInt();
+    inf.nextLine();
+    int bi = inf.nextInt();
+    int bj = inf.nextInt();
+    inf.nextLine();
+    int ci = inf.nextInt();
+    int cj = inf.nextInt();
+    ensureLimits(ai, 1, n, "ai is incorrect");
+    ensureLimits(bi, 1, n, "bi is incorrect");
+    ensureLimits(ci, 1, n, "ci is incorrect");
+    ensureLimits(aj, 1, m, "aj is incorrect");
+    ensureLimits(bj, 1, m, "bj is incorrect");
+    ensureLimits(cj, 1, m, "cj is incorrect");
+    ensure(!(ai == bi && aj == bj), "a and b in one!");
+    ensure(!(ai == ci && aj == cj), "a and c in one!");
+    ensure(!(ci == bi && cj == bj), "c and b in one!");
+    inf.nextLine();
     inf.close();
   }
 
