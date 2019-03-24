@@ -29,6 +29,7 @@ public class Validate {
 
   public static void main(String[] args) {
     new Validate().run();
+    System.exit(42);
   }
 
   public class StrictScanner {
