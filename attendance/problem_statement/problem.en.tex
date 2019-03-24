@@ -1,27 +1,34 @@
 \problemname{Attendance}
-
-It is the first day as school at Liking University or short "Lku". Lku administration is very strict with attendance, especially on the first day. In order to verify the everyone's attendance, the Lku's principal has made an attendance list.
+It is the first day of school at Liking University, or "Lku" for short.
+Lku administration is very strict with attendance, especially on the first day.
+In order to verify the everyone's attendance, the Lku's principal has made an attendance list.
 He then asked to all students to stand in line to his office in order to mark everyone's attendance.
 
-The principal would go through the list, top-down and \textbf{inspect} if the person in front of him was the one currently on top the list. This \textbf{inspection} takes exactly one second. If it was, then the principal would strike the name from the list. Regardless of whether the student's name would match or not with the one on top the list, the student in front of the queue would be asked to go somewhere somewhere else in the line. This implies going to an arbitrary position in the line, e.g. going to the back, somewhere in the middle or the front (continue standing on the same spot). The student can decide which position he or she wants to go to.
+The principal would go through the list, top-down and \textbf{inspect} if the person in front of him was the one currently on top the list.
+This \textbf{inspection} takes exactly one second.
+If it was, then the principal would strike the name from the list.
+Regardless of whether the student's name would match or not with the one on top the list, the student in front of the queue would be asked to go somewhere somewhere else in the line.
+This implies going to an arbitrary position in the line, e.g. going to the back, somewhere in the middle or the front (continue standing on the same spot).
+The student can decide which position he or she wants to go to.
 
-The list itself was written hastily and had several flaws -- some students could be left out from it and some students' names could appear on the list more than once. Knowing the contents of the list and the position of each student within the initial line, what is the minimal time that it can take for every name to be stricken from the attendance list?
+The list itself was written hastily and had several flaws -- some students could be left out from it and some students' names could appear on the list more than once.
+Knowing the contents of the list and the position of each student within the initial line, what is the minimal time that it can take for every name to be stricken from the attendance list if the students choose their new positions in the queue optimally?
 
 \section*{Input}
+The first line of input contains two integers $N$ and $M$ $(1 \leq N, M \leq 3*10^5)$ -- the total number of students the line and the number of names on the list respectively.
 
-The first line of input contains two integers $n$ and $m$ $(1 \leq n,m \leq 3*10^5)$ -- the total number of students the line and the number of names on the list respectively.
+The second line contains $M$ integers $a_1, a_2, ... , a_M$ $(1 \leq a_i \leq N)$ -- the names of students as they appear in the list (top-down).
 
-The second line contains $m$ integers $a_1, a_2, ... , a_m$ $(1 \leq a_i \leq n)$ -- the names of students as they appear in the list (top-down).
+The third line contains $N$ integers $b_1, b_2, ... , b_N$ $(1 \leq b_i \leq N)$ -- the initial order of the students as they appear in line.
 
-The third line contains $n$ integers $b_1, b_2, ... , b_m$ $(1 \leq b_i \leq n)$ -- the initial order of the students as they appear in line.
+The students are numbered between $1$ and $N$.
 
 \section*{Output}
-
 The output consists of two lines:
-\begin{itemize}
-\item The first line of output is $k$ -- the minimal number of \textbf{inspections} that the principal needs to do.
-\item The second line of the output consists of $k$ integers. For every \textbf{inspection}, output a number for which position in the line the student has to go back to after the inspection.
 
+\begin{itemize}
+\item The first line of output is $K$ -- the minimal number of \textbf{inspections} that the principal needs to do.
+\item The second line of the output consists of $K$ integers. For every \textbf{inspection}, output a number for which position in the line the student has to go back to after the inspection.
 \end{itemize}
 
 If there are multiple solutions which result in minimal number of inspections, then output any of them.
