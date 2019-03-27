@@ -18,11 +18,11 @@ The first line of the input contains an integer $N$ ($2 \le N \le 1000$), the nu
 
 The next line contains the $N$ integers $a_1, a_2, ..., a_N$ ($1 \le a_i \le 10^5$), the number of seconds each of the $N$ steps takes in the build process.
 
-The next line contains an integer $M$, the number of dependencies between different steps.
+This is followed by $N$ lines.
+The $i$'th of these lines contains an integer $C_i$ followed by $C_i$ integers $A_1, \dots, A_{C_i}$ ($1 \le A_j < i$).
+The integers $A_j$ denote what steps the $i$'th step have a dependency on.
 
-This is followed by $M$ lines, each containing two integers $a, b$ between $1$ and $N$ each, denoting that step $a$ depends on step $b$.
-
-It is guaranteed that there is no step that directly or indirectly depends on itself.
+It is guaranteed that there is no step that indirectly depends on itself.
 Furthermore, each step has a direct or indirect dependenct on step $1$ (receiving an order), and step $N$ (delivering the airplane) has a direct or indirect dependency on every other step.
 
 \section*{Output}
