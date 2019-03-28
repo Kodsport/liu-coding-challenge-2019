@@ -11,13 +11,6 @@ import java.io.*;
  * @author niyaz.nigmatullin
  */
 public class clock {
-  static final String PROBLEM_ID;
-
-  static {
-    String s = new Throwable().getStackTrace()[0].getClassName();
-    PROBLEM_ID = s.substring(0, s.indexOf('_'));
-  }
-
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     PrintWriter out = new PrintWriter(System.out, true);
