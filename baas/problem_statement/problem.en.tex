@@ -1,6 +1,6 @@
 \problemname{BAAS}
 BAAS Inc. (Build Airplanes As-a-Service) has grand plans to build lots of airplanes.
-Naturally, airplane construction process consists of multiple steps, each of which may take some time.
+Naturally, the airplane construction process consists of multiple steps, each of which may take some time.
 Some steps can take more time to complete than others, e.g. attaching a plane wing may take longer than spray-painting the BAAS logo on the tail.
 Furthermore, some steps must to be completed before others can commence.
 For instance the hull needs to be assembled before the wings can be attached to it.
@@ -20,7 +20,7 @@ The next line contains the $N$ integers $a_1, a_2, ..., a_N$ ($1 \le a_i \le 10^
 
 This is followed by $N$ lines.
 The $i$'th of these lines contains an integer $C_i$ followed by $C_i$ integers $A_1, \dots, A_{C_i}$ ($1 \le A_j < i$).
-The integers $A_j$ denote what steps the $i$'th step have a dependency on.
+The integers $A_j$ denote what steps the $i$'th step has a dependency on.
 
 It is guaranteed that there is no step that indirectly depends on itself.
 Furthermore, each step has a direct or indirect dependenct on step $1$ (receiving an order), and step $N$ (delivering the airplane) has a direct or indirect dependency on every other step.
