@@ -18,5 +18,10 @@ python3 careful.py > secret/17-careful.in
 python3 careful.py > secret/18-careful.in
 python3 careful.py > secret/19-careful.in
 python3 careful.py > secret/20-careful.in
+python3 overflow.py > secret/21-overflow.in
+python3 overflow.py > secret/22-overflow.in
+python3 overflow.py > secret/23-overflow.in
+python3 overflow.py > secret/24-overflow.in
+python3 overflow.py > secret/25-overflow.in
 
 for x in secret/*.in; do python3 ../submissions/accepted/js.py < $x > `echo $x | cut -d. -f 1`.ans; done
