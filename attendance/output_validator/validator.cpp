@@ -192,7 +192,7 @@ int main(int argc, char *argv[]) {
       return 43;
     } else if (k > kk) {
       cout << "woops, participant answer is better" << endl;
-      return 42;
+      abort();
     } else {
       cout << k << " intractions" << endl;
       return 42;
