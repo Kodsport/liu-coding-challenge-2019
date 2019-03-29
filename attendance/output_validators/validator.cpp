@@ -1,9 +1,8 @@
 /*
- * usage:
- *  cat /path/to/input /path/to/judge/answer /path/to/participant/answer | \
- * ./a.out
+ * usage: ./a.out input_file answer < participant_answer
  */
 
+#include <fstream>
 #include <iostream>
 #include <map>
 #include <queue>
@@ -16,7 +15,7 @@
 #define sz(a) (int)a.size()
 #define re return
 using namespace std;
-const int CMAX = int(1e9), MAXN = int(3e5);
+const int CMAX = int(1e6), MAXN = int(3e5);
 string s;
 int n, m;
 vector<int> a, b;
@@ -41,14 +40,12 @@ struct node {
 typedef node *qnode;
 
 int get_cnt(qnode a) {
-  if (a == NULL)
-    re 0;
+  if (a == NULL) re 0;
   re(a->cnt);
 }
 
 void upd_cnt(qnode &a) {
-  if (a == NULL)
-    re;
+  if (a == NULL) re;
   a->cnt = get_cnt(a->l) + 1 + get_cnt(a->r);
 }
 
@@ -112,8 +109,7 @@ void merge(qnode &a, qnode l, qnode r) {
 }
 
 int delete1(qnode &a, int key) {
-  if (a == NULL)
-    re 0;
+  if (a == NULL) re 0;
   int c = 0;
   if (get_cnt(a->l) >= key) {
     c = delete1(a->l, key);
@@ -130,18 +126,17 @@ int delete1(qnode &a, int key) {
 }
 
 void out_tree(qnode a) {
-  if (a == NULL)
-    return;
+  if (a == NULL) return;
   out_tree(a->l);
   cout << (a->key) << " ";
   out_tree(a->r);
 }
 
 bool readAns(istream &in, int &k) {
-  cin >> k;
+  in >> k;
 
-  if (k < 1 || k > 1e9) {
-    cout << "WA: k must be 1 <= k <= 1e9" << endl;
+  if (k < 1 || k > 1e6) {
+    cout << "WA: k must be 1 <= k <= 1e6" << endl;
     return false;
   }
 
@@ -178,13 +173,28 @@ bool readAns(istream &in, int &k) {
 }
 
 int main(int argc, char *argv[]) {
-  cin >> n >> m;
+  if (argc < 3) exit(1);
+  cin.sync_with_stdio(0);
+  cin.tie(0);
+
+  string input_file = argv[1];
+  string answer_file = argv[2];
+
+  ifstream fin(input_file);
+  fin.exceptions(cin.failbit | cin.badbit | cin.eofbit);
+
+  fin >> n >> m;
   b.resize(n);
   a.resize(m);
-  forn(i, m) cin >> a[i];
-  forn(i, n) cin >> b[i];
+  forn(i, m) fin >> a[i];
+  forn(i, n) fin >> b[i];
+
+  fin.close();
+  fin.open(answer_file);
+
   int k, kk;
-  readAns(cin, k);
+  readAns(fin, k);
+  fin.close();
 
   if (readAns(cin, kk)) {
     if (k < kk) {
