@@ -7,6 +7,7 @@
 #include <map>
 #include <queue>
 #include <set>
+#include <cassert>
 #include <unordered_set>
 #define forn(i, n) for (int i = 0; i < n; i++)
 #define mp make_pair
@@ -134,6 +135,10 @@ void out_tree(qnode a) {
 
 bool readAns(istream &in, int &k) {
   in >> k;
+  if (!in) {
+    cout << "WA: no output or first token not a number" << endl;
+    return false;
+  }
 
   if (k < 1 || k > 1e6) {
     cout << "WA: k must be 1 <= k <= 1e6" << endl;
@@ -169,6 +174,11 @@ bool readAns(istream &in, int &k) {
     cout << "WA: not all names are crossed off" << endl;
     return false;
   }
+  string word;
+  if (in >> word) {
+    cout << "WA: trailing token " << word << endl;
+    return false;
+  }
   return true;
 }
 
@@ -181,7 +191,6 @@ int main(int argc, char *argv[]) {
   string answer_file = argv[2];
 
   ifstream fin(input_file);
-  fin.exceptions(cin.failbit | cin.badbit | cin.eofbit);
 
   fin >> n >> m;
   b.resize(n);
@@ -193,7 +202,8 @@ int main(int argc, char *argv[]) {
   fin.open(answer_file);
 
   int k, kk;
-  readAns(fin, k);
+  int r = readAns(fin, k);
+  assert(r);
   fin.close();
 
   if (readAns(cin, kk)) {
@@ -204,7 +214,7 @@ int main(int argc, char *argv[]) {
       cout << "woops, participant answer is better" << endl;
       abort();
     } else {
-      cout << k << " intractions" << endl;
+      cout << k << " interactions" << endl;
       return 42;
     }
   }
