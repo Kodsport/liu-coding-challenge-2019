@@ -1,0 +1,27 @@
+\begin{frame}
+  \frametitle{D -- Diverse Cookies}
+  \section*{Problem}
+  We have $A$, $B$ and $C$ cookies of different kinds.
+  How many cookies can we distribute to $N$ people such that nobody have to eat the same kind of cookie twice in a row?
+\end{frame}
+\begin{frame}
+  \frametitle{D -- Diverse Cookies}
+  \section*{Solution}
+  WLOG, assume $A \le B \le C$.
+
+  When can a single person not eat all cookies? When $A + B < C + 1$. 
+  Otherwise, we could eat cookies in a $$C, B, C, B, \dots C, B, C, A, C, B, C, A, \dots A, B, A, B$$ pattern.
+\end{frame}
+\begin{frame}
+  \frametitle{D -- Diverse Cookies}
+  \section*{Solution}
+  Assume a single person can not eat all cookies, i.e. $A + B < C + 1$.
+  
+  That person can then eat all $A$ and $B$ cookies and $A + B + 1$ type $C$ cookies.
+
+  Then, the remaining $N - 1$ people can eat a single $C$ cookie.
+
+  In total, they can eat
+  $$A + B + \min(C, A + B + N)$$
+  cookies.
+\end{frame}

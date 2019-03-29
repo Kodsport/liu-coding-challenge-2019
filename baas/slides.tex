@@ -1,0 +1,19 @@
+\begin{frame}
+  \frametitle{B -- BaaS}
+  \section*{Problem}
+  Given a \emph{directed, acyclic graph}, determine the longest path from stage $1$ to $N$ if we may set the weight of a single vertex to $0$.
+\end{frame}
+\begin{frame}
+  \frametitle{B -- BaaS}
+  \section*{Solution}
+  If we may not change any weights, this becomes a DP problem.
+
+  Let $f(v)$ be the longest path from vertex $v$ to vertex $N$. Then,
+  $$f(N) = 0$$
+  $$f(v) = a_v + \min_{u \in N(v)} f(u)$$
+
+  Computing the value of $f(1)$ then takes $\Theta(E)$ time ($\Theta(N^2)$ in the worst case).
+
+  Since $N$ is small, we can try to solve the problem where we may not modify a weight, by trying to set the weight of each vertex to $0$ one at a time
+  and then using the above recursion.
+\end{frame}

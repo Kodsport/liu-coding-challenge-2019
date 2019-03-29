@@ -1,4 +1,6 @@
-author: Vladimir Valyukh, based on russian regional olympiad
+author: Vladimir Valyukh
 source: LiU Coding Challenge 2019
 validation: custom
 license: cc by-sa
+limits:
+  time_multiplier: 6
