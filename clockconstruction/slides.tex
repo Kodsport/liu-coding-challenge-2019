@@ -1,0 +1,19 @@
+\begin{frame}
+  \frametitle{C -- Clock Contruction}
+  \section*{Problem}
+  Input: A few tables of equal size which consist of two distinct symbols (ON and OFF).
+
+  We have to divide these into the minimal number of groups such that the values in each group have either ON or OFF on each table.
+
+  Task: find the minimal number of such groups.
+\end{frame}
+\begin{frame}
+  \frametitle{C -- Clock Contruction}
+  \section*{Solution}
+
+  Minimzing number of groups $\rightarrow$  Each group should be as large as possible.
+
+  Pixels can belong to the same group iff their ON and OFF states are the same across all of the images.
+
+  Create a boolean array (e.g. bitset) for each pixel. Each distinct array will then represent each distinct group.
+\end{frame}
