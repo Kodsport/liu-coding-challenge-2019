@@ -1,0 +1,13 @@
+\begin{frame}
+  \frametitle{A -- Attendence}
+  \section*{Problem}
+  Given an inital stack of integers, how can we pop integers in a specifiend order using minimal number of operations, where after each operation we can re-insert the popped item back into the stack at an atbitrary position.
+\end{frame}
+\begin{frame}
+  \frametitle{A -- Attendence}
+  \section*{Solution}
+  \textbf{Key insight}: we can always insert the name back into the queue in such way that it will always be used to strike the name of the list when it appears again.
+  This implies $$M \leq a_{operations} \le M + N$$
+  The problem is then reduced to: given a name that we have \textit{popped} from the stack, find its next occurance in the required sequence. This might also require finding any existing subsequence within the inital stack.
+
+\end{frame}
